@@ -13,4 +13,14 @@ class Commit(models.Model):
     commit_url = models.CharField(max_length=250)
 
     def __str__(self):
-        return '{}'.format(self.commit_url)
+        return '{}'.format(self.commit_repository_id)
+
+class Comment(models.Model):
+    comment_commit_id = models.ForeignKey(
+        Commit, on_delete=models.CASCADE)
+    comment_id = models.CharField(max_length=100)
+    comment_date = models.DateTimeField()
+    comment_body = models.TextField(max_length=300)
+
+    def __str__(self):
+        return '{}'.format(self.comment_commit_id)
