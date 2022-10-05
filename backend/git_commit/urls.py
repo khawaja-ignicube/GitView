@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('getCommit/<int:pk>', views.GetCommitData.as_view(),
-         name='getBCommitData'),
+         name='getCommitData'),
     path('getComment/<int:pk>', views.GetCommentData.as_view(),
          name='getCommentData')
 ]

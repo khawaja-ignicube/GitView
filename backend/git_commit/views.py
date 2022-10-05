@@ -31,7 +31,6 @@ def getCommit(authorize_user):
                                 'Authorization': 'Bearer ' + authorize_user.authorization_access_token})
         branch_data = response.json()
         
-
         counter_j = 0
 
         while(counter_j < len(branch_data)):
@@ -39,7 +38,7 @@ def getCommit(authorize_user):
 
             repository_instance = Repository.objects.get(
                 repository_id=repository_list['repository_id'])
-            commit_object = Commit.objects.get_or_create(
+            Commit.objects.get_or_create(
                 commit_repository_id=repository_instance,
                 commit_id=data['sha'],
                 committer_name=data['commit']['author']['name'],
@@ -64,7 +63,6 @@ def getCommit(authorize_user):
 
                 while(counter_k < len(comment_data)):
                     data_comment = comment_data[counter_k]
-
                     commit_obj = Commit.objects.get(commit_id=data['sha'])
                 
                     Comment.objects.get_or_create(

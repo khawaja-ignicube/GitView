@@ -15,8 +15,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
         model = AuthorizeUser
         fields = (
             'id', 'username', 'password', 'password2', 'email','first_name',
-            'authorization_public_repository', 'authorization_own_private_repository',
-            'authorization_total_private_repository', 'authorization_access_token')
+            'authorization_user_id', 'authorization_access_token')
         extra_kwargs = {'first_name': {'required': True}}
 
     def validate(self, attrs):
@@ -30,10 +29,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
             username=validated_data['username'],
             email=validated_data['email'],
             first_name=validated_data['first_name'],
-            authorization_public_repository=validated_data['authorization_public_repository'],
-            authorization_own_private_repository=validated_data['authorization_own_private_repository'],
-            authorization_total_private_repository=validated_data[
-                'authorization_total_private_repository'],
+            authorization_user_id=validated_data['authorization_user_id'],
             authorization_access_token=validated_data['authorization_access_token'],
         )
         user.set_password(validated_data['password'])
