@@ -1,11 +1,9 @@
+import { useCookies } from 'react-cookie';
 import { NavLink, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState, ChangeEvent } from 'react';
-import { useCookies } from 'react-cookie';
-
 import { useTokenGetMutation } from '../services/GitViewAPI';
 
 function Login() {
-
     const [getTokenPost, tokenPost] = useTokenGetMutation();
 
     const [username, setUsername] = useState('khawajaali444');
@@ -31,7 +29,6 @@ function Login() {
         setCookie('Status', 'true', { path: '/' });
         navigate('/repository');
     };
-
 
     useEffect(() => {
         if (tokenPost.isSuccess) {
@@ -83,7 +80,7 @@ function Login() {
 
                         <h2 className='Auth-form-title text-center'>
                             {' '}
-                            <NavLink className="sgn-btn" to="/">Sign In </NavLink>
+                            <NavLink className="sgn-btn" to="/">Signup </NavLink>
                             {' '}
                         </h2>
 
@@ -91,7 +88,6 @@ function Login() {
                         <div className="d-grid gap-2 mt-3">
                             <button type="button" className="btn btn-primary" onClick={addData}>Submit</button>
                         </div>
-
                     </div>
                 </div>
             </div>

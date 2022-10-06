@@ -1,9 +1,7 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import type { PreloadedState } from '@reduxjs/toolkit';
-
-import authorizeUserReducer from '../app/features/authorizeUserSlice'
-
 import { gitviewApi } from '../services/GitViewAPI';
+import type { PreloadedState } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import authorizeUserReducer from '../app/features/authorizeUserSlice';
 
 const rootReducer = combineReducers({
     authorizeUser: authorizeUserReducer,

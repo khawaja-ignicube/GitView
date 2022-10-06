@@ -1,13 +1,9 @@
 import requests
-from django.shortcuts import render
 from git_commit.models import Commit, Comment
-
+from git_commit.serializers import CommitSerializers, CommentSerializers
 from git_authorization.models import AuthorizeUser
 from git_repository.models import Repository
 from rest_framework.generics import ListAPIView
-
-from git_commit.serializers import CommitSerializers, CommentSerializers
-
 
 def getCommit(authorize_user):
     counter_i = 0
@@ -28,9 +24,8 @@ def getCommit(authorize_user):
             authorize_user.username + '/' + repository_name + '/commits'
 
         response = requests.get(url, headers={
-                                'Authorization': 'Bearer ' + authorize_user.authorization_access_token})
+            'Authorization': 'Bearer ' + authorize_user.authorization_access_token})
         branch_data = response.json()
-        
         counter_j = 0
 
         while(counter_j < len(branch_data)):

@@ -1,12 +1,9 @@
 import requests
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView
 from git_branch.models import Branch
+from git_branch.serializers import BranchSerializers
 from git_authorization.models import AuthorizeUser
 from git_repository.models import Repository
-from rest_framework.generics import ListAPIView
-
-from git_branch.serializers import BranchSerializers
-
 
 def getBranch(authorize_user):
     counter_i=0
@@ -17,16 +14,21 @@ def getBranch(authorize_user):
     repository_data_list = repository_data.values(
         'id', 'repository_id', 'repository_name')
     list_result = [entry for entry in repository_data_list]
+    print("user = ,", authorize_user.username)
 
     while(counter_i < len(list_result)):
         repository_list = list_result[counter_i]
         repository_name = repository_list['repository_name']
         url = 'https://api.github.com/repos/' + authorize_user.username + '/' + repository_name + '/branches'
+        print('url = ', url)
         
-        response = requests.get(url,headers={'Authorization': 'Bearer ' + authorize_user.authorization_access_token})
+        response = requests.get(
+            url,headers={'Authorization': 'Bearer '+
+            authorize_user.authorization_access_token})
         branch_data = response.json()
         counter_i = counter_i+1
         counter_j=0
+        print("data = ", branch_data)
 
         while(counter_j < len(branch_data)):
             data = branch_data[counter_j]
@@ -38,10 +40,7 @@ def getBranch(authorize_user):
                 branch_name=data['name'],
                 branch_commit=data['commit']['sha'],
                 branch_protected=False)
-
-
             counter_j = counter_j+1
-
 
 class GetBranchData(ListAPIView):
 

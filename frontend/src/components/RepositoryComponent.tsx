@@ -6,7 +6,7 @@ import { RepositoryComponentPropsType } from './functionality/TypeScript'
 function RepositoryComponent({
     repositoryID, repositoryKey, repositoryName, repositoryType, repositoryDescription, repositoryCreated, repositoryDefault_branch
 }: RepositoryComponentPropsType) {
-    // Date object
+
     const RepositoryDate = new Date(repositoryCreated);
     const navigate = useNavigate();
 

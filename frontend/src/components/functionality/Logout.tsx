@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Delete Cookie
 export const DeleteCookie = () => {
     document.cookie = 'Token=; Max-Age=0';
     document.cookie = 'Username=; Max-Age=0';

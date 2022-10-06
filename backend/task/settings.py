@@ -9,11 +9,10 @@ environ.Env.read_env()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = 'django-insecure-xe+2o^99ee8+$o(44m(bri@22lw&i24z_#41qpmcwsz0lf90)o'
+SECRET_KEY = env('DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 
 ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
 
@@ -27,7 +26,6 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'git_authorization.AuthorizeUser'
-
 
 # Application definition
 

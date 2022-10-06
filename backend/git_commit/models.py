@@ -12,8 +12,8 @@ class Commit(models.Model):
     commit_total_comment = models.IntegerField()
     commit_url = models.CharField(max_length=250)
 
-    # def __str__(self):
-    #     return '{}'.format(self.commit_repository_id)
+    def __str__(self):
+        return '{}'.format(self.commit_repository_id)
 
 class Comment(models.Model):
     comment_commit_id = models.ForeignKey(

@@ -5,12 +5,11 @@ import { CommentComponentPropsType } from './functionality/TypeScript'
 function CommentComponent({
     commentID, commitID, commentKey, commentDate, commentMessage
 }: CommentComponentPropsType) {
-    // Date object
+
     const NewCommentDate = new Date(commentDate);
 
     return (
         <div className="workData">
-
             <div className="form-group mt-3">
                 <h5>Comment ID </h5>
                 <input

@@ -7,7 +7,6 @@ import TokenCookie from './functionality/TokenCookie';
 import { useRepositoryGetQuery } from '../services/GitViewAPI';
 
 function Repository() {
-
     const repositoryData = useRepositoryGetQuery(undefined)
     const [dataAvailable, setDataAvailable] = useState('');
 
@@ -37,7 +36,6 @@ function Repository() {
 
     return (
         <div className='App'>
-            
             <div className="Auth-form-container">
                 <div className="Auth-form ">
                     <div className="Auth-form-content">

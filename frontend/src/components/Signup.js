@@ -1,11 +1,11 @@
+import { supabase } from '../services/OAuthServer';
 import { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { supabase } from '../services/OAuthServer';
-import { useSigninPostMutation } from '../services/GitViewAPI'
+import { useSignupPostMutation } from '../services/GitViewAPI'
 
 function Signup() {
     const [user, setUser] = useState(null);
-    const [getRegisterUser, registerUser] = useSigninPostMutation();
+    const [getRegisterUser, registerUser] = useSignupPostMutation();
 
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -75,7 +75,6 @@ function Signup() {
                         <h1 className="Auth-form-title text-center">Signup</h1>
                         <br/><br/>
                         
-                        {console.log("data = ", user)}
                         <div className="form-group mt-3 text-center">
                             <h5>User ID </h5>
                             <input
@@ -155,7 +154,7 @@ function Signup() {
                         
                         <br/><br/>
                         <div className="d-grid gap-2 mt-3">
-                            <button type="button" className="btn btn-primary" onClick={signin} >Signin</button>
+                            <button type="button" className="btn btn-primary" onClick={signin} >Signup</button>
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,6 @@ import TokenCookie from './functionality/TokenCookie';
 import { useCommentGetQuery } from '../services/GitViewAPI';
 
 function Comment() {
-
     const { state } = useLocation();
     const { id } = state;
 
@@ -69,7 +68,6 @@ function Comment() {
                                     />
                                 ))
                             }
-
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,6 @@ function BranchComponent({
 
     return (
         <div className="workData">
-
             <div className="form-group mt-3">
                 <h5>Branch ID </h5>
                 <input

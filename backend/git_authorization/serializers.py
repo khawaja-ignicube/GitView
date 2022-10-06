@@ -3,7 +3,6 @@ from rest_framework.validators import UniqueValidator
 from rest_framework import serializers
 from .models import AuthorizeUser
 
-
 class CreateUserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True,
                                    validators=[UniqueValidator(queryset=AuthorizeUser.objects.all())])
@@ -16,7 +15,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'username', 'password', 'password2', 'email','first_name',
             'authorization_user_id', 'authorization_access_token')
-        extra_kwargs = {'first_name': {'required': True}}
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:

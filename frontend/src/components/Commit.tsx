@@ -8,7 +8,6 @@ import TokenCookie from './functionality/TokenCookie';
 import { useCommitGetQuery } from '../services/GitViewAPI';
 
 function Commit() {
-
     const { state } = useLocation();
     const { id } = state;
 
@@ -73,7 +72,6 @@ function Commit() {
                                     />
                                 ))
                             }
-
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
-import {  useNavigate, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import {  useNavigate, useLocation } from 'react-router-dom';
 
 import Home from './functionality/Home';
 import Logout from './functionality/Logout';
@@ -8,7 +8,6 @@ import TokenCookie from './functionality/TokenCookie';
 import { useBranchGetQuery } from '../services/GitViewAPI';
 
 function Branch() {
-
     const { state } = useLocation();
     const { id } = state;
 
@@ -68,7 +67,6 @@ function Branch() {
                                     />
                                 ))
                             }
-
                         </div>
                     </div>
                 </div>

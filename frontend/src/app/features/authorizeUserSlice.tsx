@@ -24,5 +24,4 @@ export const authorizeUserHomeSlice = createSlice({
 });
 
 export const { setAuthorizeUser } = authorizeUserHomeSlice.actions;
-
 export default authorizeUserHomeSlice.reducer;

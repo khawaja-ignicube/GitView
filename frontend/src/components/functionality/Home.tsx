@@ -10,7 +10,7 @@ function Home() {
 
     return (
         <div className="logout">
-            <button type="button" className="btn btn-light hom" onClick={back}>Home</button>
+            <button type="button" className="btn btn-light hom" onClick={back}>Home </button>
         </div>
     );
 }

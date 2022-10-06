@@ -6,8 +6,8 @@ import { CommitComponentPropsType } from './functionality/TypeScript'
 function CommitComponent({
     commitID, repositoryID, commitKey, commitName, commitEmail, commitDate, commitMessage, commitTotalComment, commitUrl
 }: CommitComponentPropsType) {
-    // Date object
-    const NewCommitDate = new Date(commitDate);
+
+    const newCommitDate = new Date(commitDate);
     const navigate = useNavigate();
 
     const comment = () => {
@@ -48,7 +48,7 @@ function CommitComponent({
                 <h5>Commit Date </h5>
                 <DateTimePicker
                     className="mt-1"
-                    value={NewCommitDate}
+                    value={newCommitDate}
                 />
             </div>
 
@@ -82,7 +82,6 @@ function CommitComponent({
             <div className="log">
                 <button type="button" className="btn btn-light com" onClick={comment}>View Comment</button>
             </div>
-
         </div>
     );
 }

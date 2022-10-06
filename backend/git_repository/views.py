@@ -1,10 +1,8 @@
 import requests
-from django.shortcuts import render
 from git_repository.models import Repository
+from git_repository.serializers import RepositorySerializers
 from git_authorization.models import AuthorizeUser
 from rest_framework.generics import ListAPIView
-
-from git_repository.serializers import RepositorySerializers
 
 def getRepository(authorize_user):
     counter_i = 0
@@ -25,7 +23,6 @@ def getRepository(authorize_user):
                     repository_created=data['created_at'],
                     repository_default_branch=data['default_branch'])
         counter_i = counter_i+1
-
 
 class GetRepositoryData(ListAPIView):
     
